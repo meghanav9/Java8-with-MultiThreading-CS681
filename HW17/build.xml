@@ -1,0 +1,15 @@
+<project default="compile" name="CS681 Homework">
+	<property name="bin.dir" value="bin"/>
+	<property name="src.dir" value="src"/>
+
+	<target name="clean">
+        <delete dir="${bin.dir}" />
+    </target>
+
+	<target name="compile" depends="clean">
+		  <mkdir dir="${bin.dir}"/>
+		  <javac  srcdir="${src.dir}" destdir="${bin.dir}" includeantruntime="false"/>
+		  <java classname="PrimeNumberGenTest" classpath="./bin"/>
+	</target>
+
+</project>
