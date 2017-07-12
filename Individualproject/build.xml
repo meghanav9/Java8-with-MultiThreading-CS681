@@ -1,0 +1,26 @@
+<project default="compile" name="CS681 Homework">
+	<property name="bin.dir" value="bin"/>
+	<property name="src.dir" value="src"/>
+	<property environment="env"/>
+
+	<target name="clean">
+        <delete dir="${bin.dir}" />
+    </target>
+
+    <path id="MiniProject_v4.classpath">
+        <pathelement location="bin"/>
+        <pathelement location="externaljar/jsoup-1.10.2.jar"/>
+    </path>
+
+	<target name="compile" depends="clean">
+		  <mkdir dir="${bin.dir}"/>
+		  <javac  srcdir="${src.dir}" destdir="${bin.dir}" includeantruntime="false">
+		  		<classpath refid="MiniProject_v4.classpath"/>
+		  </javac>	
+		  
+		  <java classname="MainProgram" classpath="./bin">
+		  		<classpath refid="MiniProject_v4.classpath"/>
+		   </java>		
+	</target>
+
+</project>
